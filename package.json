@@ -1,0 +1,14 @@
+{
+  "name": "alarmy",
+  "version": "1.0.0",
+  "description": "Alarmy alarm grouper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nonju",
+  "license": "ISC",
+  "devDependencies": {
+    "create-react-native-app": "^1.0.0"
+  }
+}
