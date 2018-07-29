@@ -1,7 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import BaseScreen from './BaseScreen';
 import AlarmList from '../component/AlarmList';
+
+const styles = StyleSheet.create({
+  topView: {
+    marginTop: 5,
+  }
+});
 
 export default class MainScreen extends BaseScreen {
 
@@ -15,7 +21,7 @@ export default class MainScreen extends BaseScreen {
 
   renderContent = () => {
     return (
-      <View>
+      <View style={styles.topView}>
         <AlarmList />
       </View>
     );

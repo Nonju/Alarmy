@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text, Switch, TouchableHighlight } from 'react-native';
 import { getListItemBackground } from '../style/theme';
 
 const sidePadding = 5;
@@ -40,23 +40,32 @@ export default class AlarmListItem extends React.Component {
     this.setState({ active: newValue });
   }
 
+  onClick = () => {
+    // Todo: Navigate to 'screen/AlarmItem'
+  }
+
   render() {
     const { title = 'No title' } = this.props.data;
     const { active } = this.state;
     return (
-      <View style={styles.topView}>
-        <View style={styles.title}>
-          {/* Todo: Add 'Alarm' icon before title */}
-          <Text style={styles.titleText}>{title}</Text>
+      <TouchableHighlight
+        underlayColor='transparent'
+        onPress={() => this.onClick()}
+        >
+        <View style={styles.topView}>
+          <View style={styles.title}>
+            {/* Todo: Add 'Alarm' icon before title */}
+            <Text style={styles.titleText}>{title}</Text>
+          </View>
+          <View style={styles.switchBox}>
+            <Switch
+              // disabled={false}
+              value={active}
+              onValueChange={this.toggleAlarmActiveState}
+            />
+          </View>
         </View>
-        <View style={styles.switchBox}>
-          <Switch
-            // disabled={false}
-            value={active}
-            onValueChange={this.toggleAlarmActiveState}
-          />
-        </View>
-      </View>
+      </TouchableHighlight>
     );
   }
 }
