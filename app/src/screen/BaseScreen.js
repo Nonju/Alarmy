@@ -1,11 +1,20 @@
 import React from 'react';
 import { View } from 'react-native';
+import { getHeader, getBackground } from '../style/theme';
 
-import themeStyle from '../style/theme';
+const styles = {
+  background: {
+    backgroundColor: getBackground(),
+    height: '100%',
+  },
+};
 
 export default class BaseScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: typeof(navigation.state.params)==='undefined' || typeof(navigation.state.params.title) === 'undefined' ? 'find': navigation.state.params.title,
+    title: typeof(navigation.state.params) === 'undefined' || typeof(navigation.state.params.title) === 'undefined' ? 'find': navigation.state.params.title,
+    headerStyle: {
+      backgroundColor: getHeader(),
+    },
   });
   
   constructor(props) {
@@ -20,19 +29,19 @@ export default class BaseScreen extends React.Component {
     this.setupName();
   }
 
-  setupName() {
+  setupName = () => {
     const { title = '' } = this.state;
     this.props.navigation.setParams({ title });
   }
 
-  renderContent() {
+  renderContent = () => {
     return <View />;
   }
 
   render() {
-    // Todo: Apply 'themeStyle' to topView
     return (
-      <View> {/* TopView */}
+      // TopView
+      <View style={styles.background}>
         {this.renderContent()}
       </View>
     );

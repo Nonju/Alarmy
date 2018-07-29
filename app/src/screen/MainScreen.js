@@ -13,10 +13,9 @@ export default class MainScreen extends BaseScreen {
     };
   }
 
-  render() {
+  renderContent = () => {
     return (
       <View>
-        <Text>Main screen</Text>
         <AlarmList />
       </View>
     );
