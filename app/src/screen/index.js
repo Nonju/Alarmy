@@ -4,14 +4,15 @@
 import { StackNavigator } from 'react-navigation';
 
 import MainScreen from './MainScreen';
+import AlarmItemScreen from './AlarmItemScreen';
 
 export default StackNavigator({
-		Main: {
-			screen: MainScreen,
-		},
-		// BtConnect: {
-		//   screen: BtConnectScreen,
-		// },
+    Main: {
+      screen: MainScreen,
+    },
+    AlarmItem: {
+      screen: AlarmItemScreen,
+    },
 	},
 	{
 		initialRouteName: 'Main',

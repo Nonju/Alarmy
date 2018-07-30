@@ -40,32 +40,22 @@ export default class AlarmListItem extends React.Component {
     this.setState({ active: newValue });
   }
 
-  onClick = () => {
-    // Todo: Navigate to 'screen/AlarmItem'
-  }
-
   render() {
     const { title = 'No title' } = this.props.data;
     const { active } = this.state;
     return (
-      <TouchableHighlight
-        underlayColor='transparent'
-        onPress={() => this.onClick()}
-        >
-        <View style={styles.topView}>
-          <View style={styles.title}>
-            {/* Todo: Add 'Alarm' icon before title */}
-            <Text style={styles.titleText}>{title}</Text>
-          </View>
-          <View style={styles.switchBox}>
-            <Switch
-              // disabled={false}
-              value={active}
-              onValueChange={this.toggleAlarmActiveState}
-            />
-          </View>
+      <View style={styles.topView}>
+        <View style={styles.title}>
+          {/* Todo: Add 'Alarm' icon before title (or custom icon?)*/}
+          <Text style={styles.titleText}>{title}</Text>
         </View>
-      </TouchableHighlight>
+        <View style={styles.switchBox}>
+          <Switch
+            value={active}
+            onValueChange={this.toggleAlarmActiveState}
+          />
+        </View>
+      </View>
     );
   }
 }

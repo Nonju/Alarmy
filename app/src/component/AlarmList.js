@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableHighlight } from 'react-native';
 import AlarmListItem from './AlarmListItem';
 
 export default class AlarmList extends React.Component {
@@ -18,7 +18,17 @@ export default class AlarmList extends React.Component {
     ];
   }
 
-  renderItem = item => <AlarmListItem key={Math.random()} data={item} />
+  renderItem = item => {
+    const { onPress } = this.props;
+    return (
+      <TouchableHighlight
+        underlayColor='transparent'
+        onPress={() => onPress(item)}
+      >
+        <AlarmListItem key={Math.random()} data={item} />
+      </TouchableHighlight>
+    );
+  }
 
   render() {
     return (

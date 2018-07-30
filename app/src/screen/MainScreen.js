@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
 });
 
 export default class MainScreen extends BaseScreen {
-
   constructor(props) {
     super(props);
 
@@ -19,10 +18,14 @@ export default class MainScreen extends BaseScreen {
     };
   }
 
+  onItemSelect = itemData => {
+    this.props.navigation.navigate('AlarmItem');
+  }
+
   renderContent = () => {
     return (
       <View style={styles.topView}>
-        <AlarmList />
+        <AlarmList onPress={itemData => this.onItemSelect(itemData)}/>
       </View>
     );
   }
