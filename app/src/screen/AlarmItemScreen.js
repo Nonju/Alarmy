@@ -7,7 +7,7 @@ export default class AlarmItem extends BaseScreen {
     super(props);
 
     this.state = {
-      title: 'AlarmItem' // Todo: replace with alarm name
+      title: 'AlarmItem', // Todo: replace with alarm name
     };
   }
 
