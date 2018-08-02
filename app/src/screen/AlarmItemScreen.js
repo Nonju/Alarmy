@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, NativeModules } from 'react-native';
 import BaseScreen from './BaseScreen';
 
 export default class AlarmItem extends BaseScreen {
