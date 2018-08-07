@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import BaseScreen from './BaseScreen';
 import AlarmList from '../component/AlarmList';
 
@@ -22,10 +22,19 @@ export default class MainScreen extends BaseScreen {
     this.props.navigation.navigate('AlarmItem');
   }
 
+  createNewAlarm = () => {
+    this.props.navigation.navigate('AlarmItemCreate');
+  }
+
   renderContent = () => {
+    // Todo: Replace 'create new alarm' button with 'floating add-ball'
     return (
       <View style={styles.topView}>
         <AlarmList onPress={itemData => this.onItemSelect(itemData)}/>
+        <Button
+          title='Create new alarm'
+          onPress={() => this.createNewAlarm()}
+        />
       </View>
     );
   }
